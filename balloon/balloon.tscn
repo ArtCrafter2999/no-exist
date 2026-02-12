@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://draqcgirrl2n0"]
+
+[ext_resource type="Script" uid="uid://cqcwkv7x7p825" path="res://balloon/balloon.gd" id="1_jra6m"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_kg5wc"]
+[ext_resource type="FontFile" uid="uid://x7tknxtmsptg" path="res://fonts/ua-BRAND-regular.otf" id="3_t01tp"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_ug21d"]
+[ext_resource type="FontFile" uid="uid://mvladdbbon44" path="res://fonts/Monoid-Regular.ttf" id="5_5n8ep"]
+[ext_resource type="Texture2D" uid="uid://b4ipu5io01486" path="res://assets/ui/ButtonBg.png" id="5_cwey4"]
+[ext_resource type="Texture2D" uid="uid://duqjyseiv6jn7" path="res://assets/ui/ButtonHover.png" id="6_fbxog"]
+[ext_resource type="Script" uid="uid://c55gkeftb2wri" path="res://button.gd" id="7_cwey4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qq3yp"]
+default_font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
+Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
+Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
+Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbxog"]
+content_margin_left = 71.0
+content_margin_right = 20.0
+
+[node name="Balloon" type="CanvasLayer" unique_id=1697713856]
+layer = 100
+script = ExtResource("1_jra6m")
+
+[node name="Balloon" type="Control" parent="." unique_id=1140091896]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=1427501640]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -119.0
+offset_right = 576.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.46666667)
+
+[node name="DialogueLabel" parent="Balloon" unique_id=171886186 instance=ExtResource("2_kg5wc")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -119.0
+offset_bottom = -59.0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.8392157, 0.8156863, 0.72156864, 1)
+theme_override_fonts/normal_font = ExtResource("3_t01tp")
+theme_override_font_sizes/normal_font_size = 44
+text = "Мене звати Мерелін"
+horizontal_alignment = 1
+seconds_per_step = 0.07
+seconds_per_pause_step = 0.2
+
+[node name="ResponsesMenu" type="Control" parent="." unique_id=1059844662 node_paths=PackedStringArray("response_template", "positions")]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+script = ExtResource("3_ug21d")
+response_template = NodePath("ResponseExample")
+positions = [NodePath("../Marker"), NodePath("../Marker2"), NodePath("../Marker3")]
+
+[node name="ResponseExample" type="TextureButton" parent="ResponsesMenu" unique_id=24159235]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -187.0
+offset_right = -104.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_cwey4")
+texture_hover = ExtResource("6_fbxog")
+stretch_mode = 1
+script = ExtResource("7_cwey4")
+text = null
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="ResponsesMenu/ResponseExample" unique_id=204833098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8392157, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("5_5n8ep")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbxog")
+text = "Що це за"
+vertical_alignment = 1
+
+[node name="decoration" type="TextureRect" parent="ResponsesMenu/ResponseExample" unique_id=681578367]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 57.0
+texture = ExtResource("6_fbxog")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Marker" type="Control" parent="." unique_id=1121110375]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -292.0
+offset_right = -332.0
+offset_bottom = -292.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Marker2" type="Control" parent="." unique_id=669516821]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.47100002
+anchor_right = 0.5
+anchor_bottom = 0.47100002
+offset_left = 234.0
+offset_top = 9.879974
+offset_right = 234.0
+offset_bottom = 9.879974
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Marker3" type="Control" parent="." unique_id=2094652942]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = 157.0
+offset_right = -297.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2003048125]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
