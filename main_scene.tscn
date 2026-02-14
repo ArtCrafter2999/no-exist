@@ -42,7 +42,6 @@ metadata/_edit_lock_ = true
 
 [node name="Intro" type="CanvasLayer" parent="." unique_id=2074844333]
 layer = 201
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Intro" unique_id=1586052369]
 anchors_preset = 15
@@ -92,6 +91,7 @@ text = "Налаштування ESC"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_66tet")
+delay = 2.0
 
 [node name="Button" type="Control" parent="Intro/ColorRect" unique_id=1529682867]
 layout_mode = 1
@@ -101,7 +101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_66tet")
-delay = 2.0
+delay = 4.0
 
 [node name="StartButton" parent="Intro/ColorRect/Button" unique_id=1404988261 instance=ExtResource("5_8mm7a")]
 layout_mode = 1

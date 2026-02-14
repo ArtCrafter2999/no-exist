@@ -288,18 +288,17 @@ do timer("00:01")
 \n [#Жах]
 - Залишитись з нею навічно
 	do timer("666")
-	do wait(10)
+	do wait(60)
 	do restart_button()
 	\n [#Спокій]
 - Дочекатись кінця
 	do timer("00:00")
 	...
 	do! timer_fade()
-	do! character_fade()
 	do screen_glitch(1)
 	do screen_glitch(1)
 	do screen_glitch(1)
-	do screen_glitch(1)
+	do character_fade()
 	do wait(5)
 	do black_fade()
 	do wait(8)

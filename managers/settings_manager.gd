@@ -12,7 +12,7 @@ var DEFAULT_SETTINGS =  {
 	#&"master_volume": 100,
 	&"music_volume": 100,
 	&"sfx_volume": 100,
-	&"voice_volume": 0,
+	&"voice_volume": 100,
 	#&"font_size": 28,
 }
 

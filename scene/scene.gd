@@ -83,7 +83,7 @@ func timer_fade_in():
 	await get_tree().create_tween().tween_property(timer_label.get_parent(), "modulate", Color.WHITE, 1).from(Color.TRANSPARENT).finished
 
 func character_fade():
-	await get_tree().create_tween().tween_property(character, "modulate", Color.TRANSPARENT, 4).finished
+	await get_tree().create_tween().tween_property(character, "modulate", Color.TRANSPARENT, 0.1).finished
 	character.hide();
 	
 func white_fade():
