@@ -3,7 +3,6 @@ class_name DialogueBalloon
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 signal emotion_changed(emotion_name: String)
-#signal response_selected(response: String)
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -146,6 +145,11 @@ func apply_dialogue_line() -> void:
 	
 	dialogue_label.show()
 	
+	_load_voice(dialogue_line);
+	#if dialogue_line.has_tag("v"):
+		#audio_stream_player.stream = load(dialogue_line.get_tag_value("v"))
+		#audio_stream_player.play()
+	
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
@@ -153,12 +157,8 @@ func apply_dialogue_line() -> void:
 		balloon.hide();
 
 	# Wait for next line
-	if dialogue_line.has_tag("voice"):
-		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
-		audio_stream_player.play()
-		await audio_stream_player.finished
-		next(dialogue_line.next_id)
-	elif dialogue_line.responses.size() > 0:
+	
+	if dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 	elif dialogue_line.time != "":
@@ -174,6 +174,57 @@ func apply_dialogue_line() -> void:
 ## Go to the next line
 func next(next_id: String) -> void:
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
+
+func _load_voice(line: DialogueLine):
+	var voice_file_name = line.get_tag_value("v")
+	
+	if not voice_file_name:
+		voice_file_name = ""
+			
+		var fixed_line = line.text;
+		for sym in ",.?!():»«”“…": 
+			fixed_line = fixed_line.replace(sym, "")
+			
+		var regex = RegEx.new()
+		regex.compile("\\s[-—]\\s")
+		fixed_line = regex.sub(fixed_line, " ", true)
+		
+		voice_file_name += fixed_line.strip_edges().substr(0, nth_symbol(fixed_line, " ", 3))
+		
+		regex.compile("\\[.+?\\]")
+		voice_file_name = regex.sub(voice_file_name, "", true)
+		
+		
+		regex = RegEx.new()
+		regex.compile("\\s+")
+		voice_file_name = regex.sub(voice_file_name, " ", true)
+		
+		for sym in "'’-": 
+			voice_file_name = voice_file_name.replace(sym, " ")
+		
+		voice_file_name = voice_file_name.strip_edges();
+		
+		voice_file_name = voice_file_name.replace(" ", "_")
+		if !voice_file_name: return;
+	
+	var voice_file = "res://voice/%s.ogg" % voice_file_name.to_lower()
+	
+	print(voice_file)
+	
+	if ResourceLoader.exists(voice_file):
+		audio_stream_player.stream = load(voice_file)
+		audio_stream_player.play();
+	else:
+		audio_stream_player.stop();
+
+func nth_symbol(string: String, what: String, n: int, from: int = 0):
+	var index = string.find(what, from)
+	if n == 1:
+		return index;
+	if index > 0:
+		return nth_symbol(string, what, n-1, index+1)
+	else:
+		return string.length()
 
 
 #region Signals
@@ -215,6 +266,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	responses_menu.hide()
+	await get_tree().create_timer(0.3).timeout
 	next(response.next_id)
 
 

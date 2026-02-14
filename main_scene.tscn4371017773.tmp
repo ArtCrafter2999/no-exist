@@ -1,0 +1,419 @@
+[gd_scene format=3 uid="uid://bn1wlbqlankik"]
+
+[ext_resource type="Script" uid="uid://ctei22gsnlir7" path="res://scene/scene.gd" id="1_d5x1h"]
+[ext_resource type="Resource" uid="uid://2cortp4gdr02" path="res://dialogues/test.dialogue" id="2_8mm7a"]
+[ext_resource type="Texture2D" uid="uid://bh6hyvub5qy6d" path="res://assets/art/Bg/Bg.png" id="3_qwutr"]
+[ext_resource type="Script" uid="uid://p7l04gqivt5o" path="res://scene/paralax.gd" id="3_uws2o"]
+[ext_resource type="Texture2D" uid="uid://dwde6f22l0wbk" path="res://assets/art/Bg/Parallax1.png" id="5_671wp"]
+[ext_resource type="Script" uid="uid://cc8gml86q5spy" path="res://scene/paralax_element.gd" id="5_iylel"]
+[ext_resource type="Texture2D" uid="uid://ic5xb2uss3gb" path="res://assets/art/Bg/Parallax2.png" id="6_mo76n"]
+[ext_resource type="Texture2D" uid="uid://cans3071hsxjc" path="res://assets/art/Bg/Parallax3.png" id="7_42l1d"]
+[ext_resource type="Texture2D" uid="uid://bpv8ao1lhnc5q" path="res://assets/art/M/M.png" id="8_2jcla"]
+[ext_resource type="Script" uid="uid://ci6m2ki24vw3s" path="res://scene/character.gd" id="8_xy6fp"]
+[ext_resource type="Shader" uid="uid://dt0evrxpvmsyd" path="res://shader/glitch.gdshader" id="8_yj5sn"]
+[ext_resource type="Texture2D" uid="uid://6lhux7flko3v" path="res://assets/art/M/Halo.png" id="9_m35m6"]
+[ext_resource type="Texture2D" uid="uid://dgrlrnre71ny6" path="res://assets/art/Expressions/Безумство/Безумство_брови.png" id="10_2jcla"]
+[ext_resource type="Texture2D" uid="uid://cp3cgnre7htip" path="res://assets/art/Expressions/Безумство/Безумство_око.png" id="11_m35m6"]
+[ext_resource type="Texture2D" uid="uid://rddhm280qcc0" path="res://assets/art/Expressions/Відчай/Відчай_брови_сльози.png" id="12_42l1d"]
+[ext_resource type="Texture2D" uid="uid://cwj1xlqsdw4al" path="res://assets/art/Expressions/Безумство/Безумство_рот.png" id="12_u0ygc"]
+[ext_resource type="Texture2D" uid="uid://wg11aysneehc" path="res://assets/art/Expressions/Відчай/Відчай_око.png" id="13_2jcla"]
+[ext_resource type="Script" uid="uid://ct01x7ed8e86f" path="res://scene/mouth.gd" id="13_m35m6"]
+[ext_resource type="Texture2D" uid="uid://b0i5524oiq35a" path="res://assets/art/Expressions/Відчай/Відчай_рот.png" id="14_m35m6"]
+[ext_resource type="Texture2D" uid="uid://ujvmnxvf8vm" path="res://assets/art/Expressions/Дезорієнтація/Дезорієнтація_брови.png" id="17_vimvf"]
+[ext_resource type="Texture2D" uid="uid://clwj5fsxrdlnl" path="res://assets/art/Expressions/Дезорієнтація/Дезорієнтація_око.png" id="18_ghshe"]
+[ext_resource type="Texture2D" uid="uid://cr1sna4vew3cp" path="res://assets/art/Expressions/Дезорієнтація/Дезорієнтація_рот.png" id="19_fv2he"]
+[ext_resource type="Texture2D" uid="uid://cdgqby7mb4hsq" path="res://assets/art/Expressions/Жах/Жах_брови.png" id="20_5smuj"]
+[ext_resource type="Texture2D" uid="uid://d03mdny7l8n52" path="res://assets/art/Expressions/Жах/Жах_око.png" id="21_y5ved"]
+[ext_resource type="Script" uid="uid://bh5heoauo7b86" path="res://scene/eye_clipping.gd" id="22_ghshe"]
+[ext_resource type="Texture2D" uid="uid://uunf0yr88prt" path="res://assets/art/Expressions/Жах/Жах_рот.png" id="22_kv3aw"]
+[ext_resource type="Texture2D" uid="uid://dw0f61jvqnble" path="res://assets/art/Expressions/Здивування/Здивування_брови.png" id="24_w30ff"]
+[ext_resource type="Texture2D" uid="uid://cqw7dyo56uslk" path="res://assets/art/Expressions/Здивування/Здивування_око.png" id="25_xy6fp"]
+[ext_resource type="Texture2D" uid="uid://ccnyxmjidl8tj" path="res://assets/art/Expressions/Здивування/Здивування_рот.png" id="26_uws2o"]
+[ext_resource type="Texture2D" uid="uid://cmftni10aq5dq" path="res://assets/art/Expressions/Ненависть/Ненависть_брови.png" id="27_iylel"]
+[ext_resource type="Texture2D" uid="uid://doxacsgx5gouu" path="res://assets/art/Expressions/Ненависть/Ненависть_око.png" id="28_yj5sn"]
+[ext_resource type="Texture2D" uid="uid://ck0rlsdikbr8" path="res://assets/art/Expressions/Ненависть/Ненависть_рот.png" id="29_jtbqm"]
+[ext_resource type="Texture2D" uid="uid://conitmx7xdr4q" path="res://assets/art/Expressions/Спокій/Спокій_брови.png" id="30_ek5vw"]
+[ext_resource type="Texture2D" uid="uid://banl0sp6xp0sc" path="res://assets/art/Expressions/Спокій/Спокій_око.png" id="31_jip8q"]
+[ext_resource type="Texture2D" uid="uid://falibmub04pr" path="res://assets/art/Expressions/Страх/Страх_брови.png" id="32_euc68"]
+[ext_resource type="Texture2D" uid="uid://dq51d68ngtva7" path="res://assets/art/Expressions/Страх/Страх_піт.png" id="33_38t8r"]
+[ext_resource type="Texture2D" uid="uid://c00vg42i7md4v" path="res://assets/art/Expressions/Страх/Страх_око.png" id="34_jef5d"]
+[ext_resource type="Texture2D" uid="uid://cexslqty04vwr" path="res://assets/art/Expressions/Страх/Страх_рот.png" id="35_q1yuq"]
+[ext_resource type="Texture2D" uid="uid://bm8xsixi3gopg" path="res://assets/art/Expressions/Тривога/Тривога_брови.png" id="36_uacds"]
+[ext_resource type="Texture2D" uid="uid://b3f1fxpnn2ctg" path="res://assets/art/Expressions/Тривога/Тривога_око.png" id="37_y0lqw"]
+[ext_resource type="Texture2D" uid="uid://dls5cep6bcfm8" path="res://assets/art/Expressions/Тривога/Тривога_рот.png" id="38_c5xsv"]
+[ext_resource type="Shader" uid="uid://daq3i4utg5ede" path="res://shader/vfx.gdshader" id="40_uws2o"]
+[ext_resource type="Texture2D" uid="uid://bhv7ajkjt18cl" path="res://assets/ui/Infinity.png" id="42_euc68"]
+[ext_resource type="FontFile" uid="uid://mvladdbbon44" path="res://fonts/Monoid-Regular.ttf" id="42_jip8q"]
+[ext_resource type="Script" uid="uid://cyvj3k0g74df8" path="res://scene/glitch.gd" id="42_jtbqm"]
+[ext_resource type="Script" uid="uid://nuhxfeli6vmt" path="res://scene/periodic_glitch_screen.gd" id="43_ek5vw"]
+[ext_resource type="Script" uid="uid://cctodchq5fljs" path="res://scene/count_down_label.gd" id="44_38t8r"]
+[ext_resource type="FontFile" uid="uid://x7tknxtmsptg" path="res://fonts/ua-BRAND-regular.otf" id="45_jef5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yj5sn"]
+shader = ExtResource("8_yj5sn")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtbqm"]
+shader = ExtResource("8_yj5sn")
+shader_parameter/shake_power = 0.01
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 1.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uws2o"]
+shader = ExtResource("40_uws2o")
+shader_parameter/noise = true
+shader_parameter/chromatic_abberation = true
+shader_parameter/aberration_intensity = 1.0
+shader_parameter/r_displacement = Vector2(0.5, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-0.5, 0)
+shader_parameter/noise_intensity = 0.05
+
+[node name="Game" type="Node" unique_id=607870649]
+
+[node name="SaveManager" type="Node" parent="." unique_id=908506658]
+
+[node name="Scene" type="Node2D" parent="." unique_id=1163458731]
+script = ExtResource("1_d5x1h")
+dialog_resource = ExtResource("2_8mm7a")
+
+[node name="Container" type="Node2D" parent="Scene" unique_id=1225160357 node_paths=PackedStringArray("controls")]
+position = Vector2(640.1955, 360.11)
+scale = Vector2(0.49984717, 0.4998472)
+script = ExtResource("3_uws2o")
+controls = [NodePath("Bg"), NodePath("Paralax3"), NodePath("Paralax2"), NodePath("Paralax1")]
+maximum_movement = Vector2(100, 100)
+
+[node name="Bg" type="Sprite2D" parent="Scene/Container" unique_id=1652945686]
+position = Vector2(-0.39111325, -0.22006178)
+scale = Vector2(1.0003058, 1.0003058)
+texture = ExtResource("3_qwutr")
+script = ExtResource("5_iylel")
+modifier = 0.1
+
+[node name="Paralax3" type="Sprite2D" parent="Scene/Container" unique_id=425494308]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("7_42l1d")
+script = ExtResource("5_iylel")
+modifier = 0.3
+
+[node name="Paralax2" type="Sprite2D" parent="Scene/Container" unique_id=1889250759]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("6_mo76n")
+script = ExtResource("5_iylel")
+modifier = 0.5
+
+[node name="Character" type="Node2D" parent="Scene/Container" unique_id=1535758796]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_yj5sn")
+position = Vector2(0, 41.792786)
+scale = Vector2(1.8138651, 1.8138651)
+script = ExtResource("8_xy6fp")
+
+[node name="Character" type="Sprite2D" parent="Scene/Container/Character" unique_id=1079516093]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("8_2jcla")
+
+[node name="Halo" type="Sprite2D" parent="Scene/Container/Character" unique_id=700967816]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("9_m35m6")
+
+[node name="Безумство" type="Node2D" parent="Scene/Container/Character" unique_id=1897875305 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Безумство" unique_id=870462539]
+scale = Vector2(0.45069444, 0.45069444)
+texture = ExtResource("10_2jcla")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Безумство" unique_id=1424706967]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("11_m35m6")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Безумство" unique_id=559907372]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("12_u0ygc")
+script = ExtResource("13_m35m6")
+
+[node name="Відчай" type="Node2D" parent="Scene/Container/Character" unique_id=1978822648 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Відчай" unique_id=1300990946]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("12_42l1d")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Відчай" unique_id=1321651452]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("13_2jcla")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Відчай" unique_id=756067865]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("14_m35m6")
+script = ExtResource("13_m35m6")
+
+[node name="Дезорієнтація" type="Node2D" parent="Scene/Container/Character" unique_id=1213035790 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Дезорієнтація" unique_id=1449605124]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("17_vimvf")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Дезорієнтація" unique_id=1399181675]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("18_ghshe")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Дезорієнтація" unique_id=1771564213]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("19_fv2he")
+script = ExtResource("13_m35m6")
+
+[node name="Жах" type="Node2D" parent="Scene/Container/Character" unique_id=2044338291 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Жах" unique_id=616913371]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("20_5smuj")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Жах" unique_id=1895264606]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("21_y5ved")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Жах" unique_id=703081974]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("22_kv3aw")
+script = ExtResource("13_m35m6")
+
+[node name="Здивування" type="Node2D" parent="Scene/Container/Character" unique_id=1375809176 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Здивування" unique_id=1863579718]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("24_w30ff")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Здивування" unique_id=46583512]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("25_xy6fp")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Здивування" unique_id=1391635917]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("26_uws2o")
+script = ExtResource("13_m35m6")
+
+[node name="Ненависть" type="Node2D" parent="Scene/Container/Character" unique_id=327062588 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Ненависть" unique_id=1946564779]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("27_iylel")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Ненависть" unique_id=1305613253]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("28_yj5sn")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Ненависть" unique_id=316961596]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("29_jtbqm")
+script = ExtResource("13_m35m6")
+
+[node name="Спокій" type="Node2D" parent="Scene/Container/Character" unique_id=395840837 groups=["character_state"]]
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Спокій" unique_id=1695280647]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("30_ek5vw")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Спокій" unique_id=469010104]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("31_jip8q")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Спокій" unique_id=1956488336]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("26_uws2o")
+script = ExtResource("13_m35m6")
+
+[node name="Страх" type="Node2D" parent="Scene/Container/Character" unique_id=1903482580 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Страх" unique_id=1944909284]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("32_euc68")
+
+[node name="Base2" type="Sprite2D" parent="Scene/Container/Character/Страх" unique_id=1046866559]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("33_38t8r")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Страх" unique_id=512353578]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("34_jef5d")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Страх" unique_id=236090120]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("35_q1yuq")
+script = ExtResource("13_m35m6")
+
+[node name="Тривога" type="Node2D" parent="Scene/Container/Character" unique_id=1695287268 groups=["character_state"]]
+visible = false
+
+[node name="Base" type="Sprite2D" parent="Scene/Container/Character/Тривога" unique_id=947773624]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("36_uacds")
+
+[node name="Eye" type="Sprite2D" parent="Scene/Container/Character/Тривога" unique_id=1789274585]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("37_y0lqw")
+script = ExtResource("22_ghshe")
+
+[node name="Mouth" type="Sprite2D" parent="Scene/Container/Character/Тривога" unique_id=1742947837]
+scale = Vector2(0.45069447, 0.45069447)
+texture = ExtResource("38_c5xsv")
+script = ExtResource("13_m35m6")
+
+[node name="Paralax1" type="Sprite2D" parent="Scene/Container" unique_id=935025521]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("5_671wp")
+script = ExtResource("5_iylel")
+modifier = 1.0
+
+[node name="TimerLayer" type="CanvasLayer" parent="Scene" unique_id=995690832]
+layer = 20
+
+[node name="TextureRect" type="TextureRect" parent="Scene/TimerLayer" unique_id=1083803809]
+self_modulate = Color(1, 1, 1, 0.42745098)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.17600001
+anchor_right = 0.5
+anchor_bottom = 0.17600001
+offset_left = -147.0
+offset_top = -136.72
+offset_right = 146.33325
+offset_bottom = 47.27999
+grow_horizontal = 2
+texture = ExtResource("42_euc68")
+
+[node name="TimerLabel" type="Label" parent="Scene/TimerLayer/TextureRect" unique_id=1711652200]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.79607844, 0.6745098, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("42_jip8q")
+theme_override_font_sizes/font_size = 52
+text = "16:18"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("44_38t8r")
+
+[node name="FadeLayer" type="CanvasLayer" parent="Scene" unique_id=888040566]
+layer = 201
+
+[node name="WhiteFade" type="ColorRect" parent="Scene/FadeLayer" unique_id=1313932632]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlackFade" type="ColorRect" parent="Scene/FadeLayer" unique_id=1193414841]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Scene/FadeLayer/BlackFade" unique_id=1128944052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("45_jef5d")
+theme_override_font_sizes/font_size = 73
+text = "Ви впевнені, що зробили
+правильний вибір?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GlitchLayer" type="CanvasLayer" parent="Scene" unique_id=741176473]
+
+[node name="GlitchScreen" type="Control" parent="Scene/GlitchLayer" unique_id=1682713549 node_paths=PackedStringArray("template")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("42_jtbqm")
+template = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="Scene/GlitchLayer/GlitchScreen" unique_id=41315233]
+material = SubResource("ShaderMaterial_jtbqm")
+layout_mode = 0
+offset_left = -1160.7457
+offset_top = -654.4199
+offset_right = -1010.16785
+offset_bottom = -617.4517
+
+[node name="PeriodicGlitchScreen" type="Control" parent="Scene/GlitchLayer" unique_id=1056713280 node_paths=PackedStringArray("template")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("43_ek5vw")
+template = NodePath("ColorRect")
+amount_range = Vector2i(3, 4)
+size_range = Vector2(0.05, 0.1)
+
+[node name="ColorRect" type="ColorRect" parent="Scene/GlitchLayer/PeriodicGlitchScreen" unique_id=649803300]
+material = SubResource("ShaderMaterial_jtbqm")
+layout_mode = 0
+offset_left = -1160.7457
+offset_top = -654.4199
+offset_right = -1010.16785
+offset_bottom = -617.4517
+
+[node name="Camera2D" type="Camera2D" parent="Scene" unique_id=1478184621]
+position = Vector2(640, 360)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2113509734]
+layer = 200
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=23345369]
+material = SubResource("ShaderMaterial_uws2o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.9019608)
+metadata/_edit_lock_ = true

@@ -15,7 +15,8 @@ func _ready() -> void:
 	timer.wait_time = 0.3
 	timer.timeout.connect(_timer_timeout)
 	add_child(timer)
-	await get_tree().process_frame
+	while not scene or not scene.balloon or not scene.balloon.dialogue_label:
+		await get_tree().process_frame
 	scene.balloon.dialogue_label.started_typing.connect(_started_typing)
 
 func _timer_timeout():

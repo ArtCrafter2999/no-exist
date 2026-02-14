@@ -20,9 +20,7 @@ func _ready() -> void:
 func _timer_timeout():
 	if texture == default_texture:
 		texture = EYE_CLOSED;
-		timer.wait_time = 0.1
-		timer.start()
+		timer.start(0.1)
 		await timer.timeout
 		texture = default_texture
-		timer.wait_time = randf_range(clipping_range.x, clipping_range.y)
-		timer.start()
+		timer.start(randf_range(clipping_range.x, clipping_range.y))

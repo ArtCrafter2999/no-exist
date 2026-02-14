@@ -46,6 +46,7 @@ func get_menu_items() -> Array:
 	var items: Array = []
 	for child in get_children():
 		if child == response_template: continue
+		if not (child is BaseButton): continue
 		if not child.visible: continue
 		if "Disallowed" in child.name: continue
 		items.append(child)
@@ -61,7 +62,7 @@ func configure_focus() -> void:
 		# For random placement, standard directional focus neighbors 
 		# might feel weird, but we keep the logic for manual overrides.
 		item.mouse_entered.connect(_on_response_mouse_entered.bind(item))
-		item.gui_input.connect(_on_response_gui_input.bind(item, item.get_meta("response")))
+		item.pressed.connect(_on_response_gui_input.bind(item, item.get_meta("response")))
 
 	_previously_focused_item = items[0]
 	if auto_focus_first_item:
@@ -125,16 +126,13 @@ func _on_response_mouse_entered(item: Control) -> void:
 	if "Disallowed" in item.name: return
 	item.grab_focus()
 
-func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
-	if "Disallowed" in item.name: return
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		get_viewport().set_input_as_handled()
-		#balloon.response_selected.emit(response)
-		response_selected.emit(response)
-	elif event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action):
-		get_viewport().set_input_as_handled()
-		print("response 2")
-		#balloon.response_selected.emit(response)
-		response_selected.emit(response)
+func _on_response_gui_input(item: Control, response: DialogueResponse) -> void:
+	if "Disallowed" in item: return
+	get_viewport().set_input_as_handled()
+	response_selected.emit(response)
+	#if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+	#elif event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action):
+		#get_viewport().set_input_as_handled()
+		#response_selected.emit(response)
 
 #endregion

@@ -9,7 +9,8 @@ extends Node2D
 @onready var scene: Scene = find_parent("Scene")
 
 func _ready() -> void:
-	await get_tree().process_frame
+	while not scene or not scene.balloon:
+		await get_tree().process_frame
 	scene.balloon.emotion_changed.connect(_emotion_changed)
 
 func _emotion_changed(emotion: String):

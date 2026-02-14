@@ -1,9 +1,69 @@
-[gd_scene format=3 uid="uid://ngvlfjds817d"]
+[gd_scene format=3 uid="uid://bsdtgo3t73ukn"]
 
-[node name="Button" type="Control" unique_id=1445811744]
-layout_mode = 3
+[ext_resource type="Texture2D" uid="uid://b4ipu5io01486" path="res://assets/ui/ButtonBg.png" id="1_gcioa"]
+[ext_resource type="Texture2D" uid="uid://duqjyseiv6jn7" path="res://assets/ui/ButtonHover.png" id="2_uan0n"]
+[ext_resource type="Script" uid="uid://c55gkeftb2wri" path="res://button.gd" id="3_p172q"]
+[ext_resource type="FontFile" uid="uid://mvladdbbon44" path="res://fonts/Monoid-Regular.ttf" id="4_b44ym"]
+[ext_resource type="AudioStream" uid="uid://dnwo4fmqwvrj" path="res://sound/mouse_hover_on.ogg" id="5_b44ym"]
+[ext_resource type="AudioStream" uid="uid://crqht6lyfxs2j" path="res://sound/mouse_hover_out.ogg" id="6_2h5bg"]
+[ext_resource type="AudioStream" uid="uid://c8ydkem61kqhu" path="res://sound/mouse_click_button.ogg" id="7_154au"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbxog"]
+content_margin_left = 71.0
+content_margin_right = 20.0
+
+[node name="ResponseExample" type="TextureButton" unique_id=1404988261]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -187.0
+offset_right = -104.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_gcioa")
+texture_hover = ExtResource("2_uan0n")
+stretch_mode = 1
+script = ExtResource("3_p172q")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="." unique_id=349314933]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.8392157, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("4_b44ym")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbxog")
+text = "Що це за"
+vertical_alignment = 1
+
+[node name="decoration" type="TextureRect" parent="." unique_id=1273561900]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_right = 57.0
+texture = ExtResource("2_uan0n")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MouseEnterAudio" type="AudioStreamPlayer" parent="." unique_id=299249781]
+stream = ExtResource("5_b44ym")
+bus = &"Sound"
+
+[node name="MouseExitAudio" type="AudioStreamPlayer" parent="." unique_id=1098191985]
+stream = ExtResource("6_2h5bg")
+bus = &"Sound"
+
+[node name="MouseClickAudio" type="AudioStreamPlayer" parent="." unique_id=708616853]
+stream = ExtResource("7_154au")
+bus = &"Sound"

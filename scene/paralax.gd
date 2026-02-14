@@ -12,6 +12,7 @@ extends Node2D
 @export var circle_speed: float = 1.0
 ## How many pixels wide/tall the circle is.
 @export var circle_radius: float = 70.0
+@export var paralax = false;
 
 @export_group("References")
 @onready var bg: Sprite2D = $Bg
@@ -23,12 +24,14 @@ var _time: float = 0.0
 func _ready() -> void:
 	# Connect resize signal to handle resolution changes / Fullscreen toggle
 	get_tree().root.size_changed.connect(resize)
+	_process(0);
 	resize()
 
 func _process(delta: float) -> void:
 	# Don't follow mouse if a focus-tween is currently running
 	if _current_tween and _current_tween.is_running():
 		return
+	if not paralax: return;
 	
 	_time += delta
 

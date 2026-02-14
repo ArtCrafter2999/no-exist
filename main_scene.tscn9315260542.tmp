@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bn1wlbqlankik"]
+
+[ext_resource type="Script" uid="uid://7tur22jcyrsv" path="res://managers/game_manager.gd" id="1_7ycvg"]
+[ext_resource type="Script" uid="uid://cgix4rdrbjokr" path="res://managers/settings_manager.gd" id="2_nfk4m"]
+[ext_resource type="Script" uid="uid://drs50va3v1s3j" path="res://intro/fade_with_delay.gd" id="4_66tet"]
+[ext_resource type="PackedScene" uid="uid://bsdtgo3t73ukn" path="res://ui/button.tscn" id="5_8mm7a"]
+[ext_resource type="Script" uid="uid://bwxvvstqfl205" path="res://settings/settings.gd" id="6_hq1ik"]
+[ext_resource type="PackedScene" uid="uid://dgrjbi1byhn2d" path="res://settings/settings.tscn" id="8_66tet"]
+[ext_resource type="Shader" uid="uid://daq3i4utg5ede" path="res://shader/vfx.gdshader" id="40_uws2o"]
+[ext_resource type="FontFile" uid="uid://x7tknxtmsptg" path="res://fonts/ua-BRAND-regular.otf" id="45_jef5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uws2o"]
+shader = ExtResource("40_uws2o")
+shader_parameter/noise = true
+shader_parameter/chromatic_abberation = true
+shader_parameter/aberration_intensity = 1.0
+shader_parameter/r_displacement = Vector2(0.5, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-0.5, 0)
+shader_parameter/noise_intensity = 0.05
+
+[node name="Game" type="Node" unique_id=607870649]
+script = ExtResource("1_7ycvg")
+
+[node name="SettingsManager" type="Node" parent="." unique_id=986157483]
+script = ExtResource("2_nfk4m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2113509734]
+layer = 200
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=23345369]
+material = SubResource("ShaderMaterial_uws2o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.9019608)
+metadata/_edit_lock_ = true
+
+[node name="Intro" type="CanvasLayer" parent="." unique_id=2074844333]
+layer = 201
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Intro" unique_id=1586052369]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Jam" type="Label" parent="Intro/ColorRect" unique_id=1092304419]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -182.0
+offset_right = 507.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("45_jef5d")
+theme_override_font_sizes/font_size = 46
+text = "Гра розроблена під час,
+і для Ukrainian Micro Visual Novel Jam #2"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_66tet")
+
+[node name="Settings" type="Label" parent="Intro/ColorRect" unique_id=1939172956]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -13.0
+offset_right = 194.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("45_jef5d")
+theme_override_font_sizes/font_size = 37
+text = "Налаштування ESC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Control" parent="Intro/ColorRect" unique_id=1529682867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_66tet")
+delay = 2.0
+
+[node name="StartButton" parent="Intro/ColorRect/Button" unique_id=1404988261 instance=ExtResource("5_8mm7a")]
+layout_mode = 1
+offset_left = -100.0
+offset_top = 94.0
+offset_right = 103.5
+offset_bottom = 158.0
+text = "Почати"
+
+[node name="Settings" type="CanvasLayer" parent="." unique_id=560090005]
+layer = 203
+script = ExtResource("6_hq1ik")
+
+[node name="Panel" type="Panel" parent="Settings" unique_id=1874107051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" parent="Settings/Panel" unique_id=529321153 instance=ExtResource("8_66tet")]
+layout_mode = 1
+
+[connection signal="pressed" from="Intro/ColorRect/Button/StartButton" to="." method="start"]

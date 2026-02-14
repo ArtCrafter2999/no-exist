@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://dgrjbi1byhn2d"]
+
+[ext_resource type="PackedScene" uid="uid://d2s0x2olwvgxc" path="res://settings/slider/ui_slider.tscn" id="1_1wh5u"]
+[ext_resource type="Script" uid="uid://dia7gn2t6t5qx" path="res://settings/slider/slider_value_label.gd" id="2_5g0rr"]
+[ext_resource type="Script" uid="uid://cm5n3yy5jcdqs" path="res://settings/slider_setting.gd" id="2_n2qh0"]
+
+[node name="Settings" type="Control" unique_id=529321153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioFields" type="VBoxContainer" parent="." unique_id=1460426766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 181.0
+offset_top = -68.0
+offset_right = 362.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="MusicField" type="VBoxContainer" parent="AudioFields" unique_id=1486188380]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioFields/MusicField" unique_id=44838489]
+layout_mode = 2
+text = "Музика"
+
+[node name="Field" type="Control" parent="AudioFields/MusicField" unique_id=1228191555]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Slider" parent="AudioFields/MusicField/Field" unique_id=13075871 instance=ExtResource("1_1wh5u")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+grow_horizontal = 2
+value = 100.0
+script = ExtResource("2_n2qh0")
+setting_key = &"music_volume"
+
+[node name="SliderValueLabel" type="Label" parent="AudioFields/MusicField/Field" unique_id=488827112 node_paths=PackedStringArray("slider")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -13.0
+offset_right = 29.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+script = ExtResource("2_5g0rr")
+slider = NodePath("../Slider")
+
+[node name="SfxField" type="VBoxContainer" parent="AudioFields" unique_id=236150345]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioFields/SfxField" unique_id=1697151941]
+layout_mode = 2
+text = "Звуки"
+
+[node name="Field" type="Control" parent="AudioFields/SfxField" unique_id=1889492547]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Slider" parent="AudioFields/SfxField/Field" unique_id=1258386788 instance=ExtResource("1_1wh5u")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+grow_horizontal = 2
+value = 100.0
+script = ExtResource("2_n2qh0")
+setting_key = &"sfx_volume"
+
+[node name="SliderValueLabel" type="Label" parent="AudioFields/SfxField/Field" unique_id=1757956432 node_paths=PackedStringArray("slider")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -13.0
+offset_right = 29.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+script = ExtResource("2_5g0rr")
+slider = NodePath("../Slider")
+
+[node name="VoiceField" type="VBoxContainer" parent="AudioFields" unique_id=669421519]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioFields/VoiceField" unique_id=488001561]
+layout_mode = 2
+text = "Озвучка"
+
+[node name="Field" type="Control" parent="AudioFields/VoiceField" unique_id=321789675]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Slider" parent="AudioFields/VoiceField/Field" unique_id=639553245 instance=ExtResource("1_1wh5u")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+grow_horizontal = 2
+value = 100.0
+script = ExtResource("2_n2qh0")
+setting_key = &"voice_volume"
+
+[node name="SliderValueLabel" type="Label" parent="AudioFields/VoiceField/Field" unique_id=1738438589 node_paths=PackedStringArray("slider")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -13.0
+offset_right = 29.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+script = ExtResource("2_5g0rr")
+slider = NodePath("../Slider")
