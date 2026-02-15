@@ -42,6 +42,7 @@ metadata/_edit_lock_ = true
 
 [node name="Intro" type="CanvasLayer" parent="." unique_id=2074844333]
 layer = 201
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Intro" unique_id=1586052369]
 anchors_preset = 15

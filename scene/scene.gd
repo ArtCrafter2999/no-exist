@@ -16,7 +16,6 @@ var last_of_chapter_left: bool = false;
 @onready var glitch_screen: GlitchScreen = %GlitchScreen
 @onready var periodic_glitch_screen: PeriodicGlitchScreen = %PeriodicGlitchScreen
 @onready var timer_label: Label = %TimerLabel
-@onready var sound_player: AudioStreamPlayer = $SoundPlayer
 @onready var white: ColorRect = %WhiteFade
 @onready var black: ColorRect = %BlackFade
 @onready var restart_button_node: TextureButton = %RestartButton
@@ -30,7 +29,8 @@ func _ready() -> void:
 	timer_fade_in();
 	container.paralax = true;
 	DialogueManager.got_dialogue.connect(_got_dialogue)
-	balloon = DialogueManager.show_dialogue_balloon_scene(BALLOON, dialog_resource, "start", [self])
+	balloon = DialogueManager.show_dialogue_balloon_scene(BALLOON, dialog_resource, 
+			"start7" if OS.has_feature("editor") else "start", [self])
 	var children = character.get_children(false)
 	var emotions: Array[String] = []
 	for node in children:
@@ -86,9 +86,10 @@ func character_fade():
 	await get_tree().create_tween().tween_property(character, "modulate", Color.TRANSPARENT, 0.1).finished
 	character.hide();
 	
-func white_fade():
+func white_fade_in():
 	await get_tree().create_tween().tween_property(white, "modulate", Color.WHITE, 2).finished
-	await get_tree().create_timer(2).timeout
+
+func white_fade_out():
 	character.hide();
 	await get_tree().create_tween().tween_property(white, "modulate", Color.TRANSPARENT, 2).finished
 
@@ -168,13 +169,22 @@ func sound(options_string: String):
 	
 	if not file_name: return;
 	var file = "res://sound/%s" % file_name
-	if not ResourceLoader.exists(file):
+	var new_player: AudioStreamPlayer = null
+	if ResourceLoader.exists(file):
+		new_player = AudioStreamPlayer.new()
+		new_player.name = file_name
+		new_player.stream = load(file)
+		new_player.bus = &"Music"
+	else:
 		push_warning("no '%s' sound found" % file_name)
 		return;
-	sound_player.stream = load(file)
-	sound_player.play()
+		
+	if new_player:
+		add_child(new_player);
+		new_player.play();
+	new_player.finished.connect(func (): new_player.queue_free())
 	if awaiting:
-		await sound_player.finished
+		await new_player.finished
 
 func _got_dialogue(dialogue_line: DialogueLine):
 	var last_of_chapter = dialogue_line.has_tag("last_of_chapter")

@@ -477,9 +477,6 @@ unique_name_in_owner = true
 script = ExtResource("52_heanp")
 curve = SubResource("Curve_heanp")
 
-[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1367857849]
-bus = &"Sound"
-
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=793314561]
 stream = ExtResource("53_aghbd")
 autoplay = true
